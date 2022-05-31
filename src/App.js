@@ -1,11 +1,18 @@
 import React from 'react';
-import './assets/css/App.css';
+import './assests/css/App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Singup from './components/Singup';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      Hola mundo
-    </div>
+    <React.Fragment>
+      <Router>
+        <Switch>
+           <Route path="/" exact render = { props => (<Singup {...props}/>)}/>
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 }
 
