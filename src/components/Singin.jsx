@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from '../assets/img/registrar.png';
+import logo from '../assets/img/user.png';
 import '../assets/css/inicios.css'
 
 export default class Singup extends Component{
@@ -18,11 +18,8 @@ export default class Singup extends Component{
 
                         <form onSubmit = {this.manejadorBtn}>
                         <input type="text" className="fadeIn second" name="codigo_departamento" placeholder="Codigo de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="nombre_departamento" placeholder="Nombre de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="correo_departamento" placeholder="Correo de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="correo_departamento" placeholder="Telefono de Departamento" onChange = {this.change} />
                         <input type="password" className="fadeIn third" name="password" placeholder="Password" onChange = {this.change} />
-                        <input type="submit" className="fadeIn fourth" value="Registrarse" onClick = {this.inicioSesion} />
+                        <input type="submit" className="fadeIn fourth" value="Iniciar Sesion" onClick = {this.inicioSesion} />
                         </form>
 
                         <div id="formFooter">
