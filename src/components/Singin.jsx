@@ -34,6 +34,7 @@ export default class Singup extends Component{
             const response = await axios.post(`${Apiurl}/organizacion/singInOrganizacion`,  this.state.form);
             console.log(response);
             console.log(response.data.status);
+            console.log(response.data.message);
             alert("Credenciales correctas");
             console.log(this.props.history.push("/Dashboard"));
             window.location.reload(true);
@@ -64,7 +65,7 @@ export default class Singup extends Component{
             </form>
 
             <div id="formFooter">
-                <a class="underlineHover" href="Singup">Registrarse?</a>
+                <a className="underlineHover" href="Singup">Registrarse?</a>
             </div>
 
             </div>
