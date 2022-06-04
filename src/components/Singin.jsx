@@ -8,7 +8,7 @@ export default class Singup extends Component{
 
     state = {
         form:{
-            "codigo_departamento": "",
+            "codigo_organizacion": "",
             "password":""
         },
         error:false,
@@ -31,7 +31,7 @@ export default class Singup extends Component{
     inicioSesion = async () => {
         try {
             console.log(this.state.form);
-            const response = await axios.post(`${Apiurl}/departamento/singInDepartamento`,  this.state.form);
+            const response = await axios.post(`${Apiurl}/organizacion/singInOrganizacion`,  this.state.form);
             console.log(response);
             console.log(response.data.status);
             alert("Credenciales correctas");
@@ -58,7 +58,7 @@ export default class Singup extends Component{
             </div>
 
             <form onSubmit = {this.manejadorBtn}>
-            <input type="text" className="fadeIn second" name="codigo_departamento" placeholder="Codigo de Departamento" onChange = {this.change} />
+            <input type="text" className="fadeIn second" name="codigo_organizacion" placeholder="Codigo de la Organizacion" onChange = {this.change} />
             <input type="password" className="fadeIn third" name="password" placeholder="Password" onChange = {this.change} />
             <input type="submit" className="fadeIn fourth" value="Iniciar Sesion" onClick = {this.inicioSesion} />
             </form>

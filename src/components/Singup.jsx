@@ -8,11 +8,11 @@ export default class Singup extends Component{
 
         state = {
           form:{
-              "codigo_departamento": "",
-              "nombre_departamento": "",
-              //"empleados_departamento": "",
-              "correo_departamento": "",
-              "telefono_departamento": "",
+              "nombre_organizacion": "",
+              "codigo_organizacion": "",
+              "area_negocio": "",
+              "ubicacion": "",
+              "telefono": "",
               "password":""
           },
           error:false,
@@ -35,7 +35,7 @@ export default class Singup extends Component{
   registrarse = async () => {
     try {
         console.log(this.state.form);
-        const response = await axios.post(`${Apiurl}/departamento/signUpDepartamento`,  this.state.form);
+        const response = await axios.post(`${Apiurl}/organizacion/singUpOrganizacion`,  this.state.form);
         console.log(response);
         console.log(response.data.status);
         alert("Registrado correctamente");
@@ -62,10 +62,11 @@ export default class Singup extends Component{
                         </div>
 
                         <form onSubmit = {this.manejadorBtn}>
-                        <input type="text" className="fadeIn second" name="codigo_departamento" placeholder="Codigo de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="nombre_departamento" placeholder="Nombre de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="correo_departamento" placeholder="Correo de Departamento" onChange = {this.change} />
-                        <input type="text" className="fadeIn second" name="telefono_departamento" placeholder="Telefono de Departamento" onChange = {this.change} />
+                        <input type="text" className="fadeIn second" name="nombre_organizacion" placeholder="Nombre de la Organizacion" onChange = {this.change} />
+                        <input type="text" className="fadeIn second" name="codigo_organizacion" placeholder="Codigo de la Organizacion" onChange = {this.change} />
+                        <input type="text" className="fadeIn second" name="area_negocio" placeholder="Area Negocio de la Organizacion" onChange = {this.change} />
+                        <input type="text" className="fadeIn second" name="ubicacion" placeholder="Ubicacion de la Organizacion" onChange = {this.change} />
+                        <input type="text" className="fadeIn second" name="telefono" placeholder="Telefono de la Organizacion" onChange = {this.change} />
                         <input type="password" className="fadeIn third" name="password" placeholder="Password" onChange = {this.change} />
                         <input type="submit" className="fadeIn fourth" value="Registrarse" onClick = {this.registrarse} />
                         </form>
