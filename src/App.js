@@ -1,5 +1,6 @@
 import React from 'react';
 import './assets/css/App.css';
+import './assets/css/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Singup from './components/Singup';
 import Singin from './components/Singin';

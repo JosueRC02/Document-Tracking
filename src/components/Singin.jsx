@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import logo from '../assets/img/user.png';
 import '../assets/css/inicios.css'
+import '../assets/css/index.css'
 import {Apiurl} from '../services/ApiRest';
 import axios from 'axios';
-
 export default class Singup extends Component{
 
     state = {
