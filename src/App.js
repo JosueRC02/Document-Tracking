@@ -1,25 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import routes from './routes/routes';
 import './assets/css/App.css';
-import './assets/css/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Singup from './components/Singup';
-import Singin from './components/Singin';
-import Dashboard from './components/Dashboard';
 
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
-function App() {
+const App = () => {
   return (
-    <React.Fragment>
-      <Router>
-        <Switch>
-           <Route path="/" exact render = { props => (<Singin {...props}/>)}/>
-           <Route path="/Singup" exact render = { props => (<Singup {...props}/>)}/>
-           <Route path="/Dashboard" exact render = { props => (<Dashboard {...props}/>)}/>
-        </Switch>
-      </Router>
-    </React.Fragment>
+    <Router>
+      <Routes>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={<route.component />} />
+        ))}
+      </Routes>
+    </Router>
   );
-}
+      
+};
 
 export default App;

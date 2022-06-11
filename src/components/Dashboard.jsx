@@ -1,18 +1,21 @@
-import { useState } from "react";
-import control from '../assets/control.png';
-import logo from '../assets/logo.png';
+import { useState} from "react";
+import '../assets/css/dashboard.css'
 
-import chart from '../assets/Chart_fill.png';
-import Chat from '../assets/Chat.png';
-import User from '../assets/Userr.png';
-import calendar from '../assets/Calendar.png';
-import Search from '../assets/Search.png';
-import Chart from '../assets/Chart.png';
-import Folder from '../assets/Folder.png';
-import Setting from '../assets/Setting.png';
+import control from '../assets/img/control.png';
+import logo from '../assets/img/logo.png';
+import chart from '../assets/img/Chart_fill.png';
+import Chat from '../assets/img/Chat.png';
+import User from '../assets/img/Userr.png';
+import calendar from '../assets/img/Calendar.png';
+import Search from '../assets/img/Search.png';
+import Chart from '../assets/img/Chart.png';
+import Folder from '../assets/img/Folder.png';
+import Setting from '../assets/img/Setting.png';
 
-const Dashboard = () => {
-    const [open, setOpen] = useState(true);
+export default function Dashboard(){
+
+
+  const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Dashboard", src:chart },
     { title: "Inbox", src: Chat },
@@ -75,5 +78,3 @@ const Dashboard = () => {
     </div>
   );
 }
-
-export default Dashboard
