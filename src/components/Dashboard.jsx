@@ -1,5 +1,6 @@
 import { useState} from "react";
 import '../assets/css/dashboard.css'
+//import { useNavigate } from "react-router-dom";
 
 import control from '../assets/img/control.png';
 import logo from '../assets/img/logo.png';
@@ -11,6 +12,24 @@ import Search from '../assets/img/Search.png';
 import Chart from '../assets/img/Chart.png';
 import Folder from '../assets/img/Folder.png';
 import Setting from '../assets/img/Setting.png';
+
+
+
+const pase = async (pmt1) => {
+
+  if(pmt1 === "Dashboard"){
+    console.log(pmt1);
+  }
+  if(pmt1 === "Analytics"){
+    console.log(pmt1);
+  }
+  //const navigate = useNavigate();
+  //console.log(pmt1);
+  //alert("Registrado correctamente");
+  //navigate('/Singup')
+  //window.location.reload(true);
+}
+
 
 export default function Dashboard(){
 
@@ -64,7 +83,7 @@ export default function Dashboard(){
                 index === 0 && "bg-light-white"
               } `}
             >
-              <img src={Menu.src} alt="menu"  />
+              <img src={Menu.src} alt="menu" onClick={() => pase(Menu.title)}/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {Menu.title}
               </span>
