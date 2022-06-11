@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+  }
+body{
+    display:flex;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    padding: 10px;
+    background:linear-gradient(135deg,#71b7e6,#9b59b6);
+  }
+
+.container{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+  }
+
+.container .title{
+    padding: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+  }
+
+.container .title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 20px;
+}
+
+.container form .user-details{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 10px 12px 0;
+}
+
+form .user-details .input-box{
+    font-family: Verdana, Tahoma, sans-serif;
+    margin-bottom: 10px;
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details{
+    display:block;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 13px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #9b59b6;
+}
+
+form .button{
+    margin:10px;
+  }
+  
+form .button input{
+   width: 50%;
+   outline:none;
+   color:#fff;
+   border:none;
+   font-size: 18px;
+   font-weight: 500;
+   border-radius: 5px;
+   letter-spacing: 1px;
+   background:linear-gradient(135deg,#71b7e6,#9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(135deg,#88c3eb,#9951b6);
+}
+
+@media(max-width:584px){
+    .container{
+      max-width:100%;
+  }
+   form .user-details .input-box{
+     margin-bottom:15px;
+     width:100%;
+  }
+   form gender-details .category{
+     width:100%;
+  }
+  .container form .user-details{
+    max-height:300px;
+    overflow-y:scroll;
+  }
+
+  .user-details::-webkit-scrollbar{
+    width: 0;
+  }
+}

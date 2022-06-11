@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/img/user.png';
-import '../assets/css/inicios.css'
+import '../assets/css/singin.css';
 import {Apiurl} from '../services/ApiRest';
 import axios from 'axios';
 import SinginValidation from '../class/SinginValidation';
@@ -41,7 +41,7 @@ const SinginForm = () => {
 
             <div className="fadeIn first">
                 <br/><br/>
-            <img src={logo} style={{width: '150px', marginLeft: '148px'}} alt="User Icon" />
+            <img src={logo} style={{width: '150px', marginLeft: '128px'}} alt="User Icon" />
                 <br/><br/>
             </div>
 

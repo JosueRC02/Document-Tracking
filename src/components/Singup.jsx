@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/img/registrar.png';
-import '../assets/css/inicios.css'
+import '../assets/css/singup.css'
 import {Apiurl} from '../services/ApiRest';
 import axios from 'axios';
 import SingupValidation from '../class/SingupValidation';
@@ -25,7 +25,7 @@ const SingupForm = () => {
 
   const registrarse = async () => {
 
-    const datos = {nombre_organizacion:nombre_organizacion, codigo_organizacion:codigo_organizacion, area_negocio:area_negocio,     ubicacion:ubicacion, telefono:telefono, password:password}
+    const datos = {nombre_organizacion:nombre_organizacion, codigo_organizacion:codigo_organizacion, area_negocio:area_negocio, ubicacion:ubicacion, telefono:telefono, password:password}
     try {
         const response = await axios.post(`${Apiurl}/organizacion/singUpOrganizacion`, datos);
         console.log(response);
@@ -37,46 +37,56 @@ const SingupForm = () => {
         return error;
     }
   }
-
-    return (
-        <div className="wrapper fadeInDown">
-        <div id="formContent">
-
-            <div className="fadeIn first">
-                <br/><br/>
-            <img src={logo} style={{width: '150px', marginLeft: '148px'}} alt="User Icon" />
-                <br/><br/>
+     return (
+        <div className="container">
+            <div className="title">
+            <img src={logo} style={{width: '110px', marginLeft: '570px'}} alt="User Icon" />
             </div>
+                <form onSubmit = {manejadorBtn}>
+                    <div className="user-details">
+                        <div className="input-box">
+                            <span className="details">Nombre de la organizacion</span>
+                            <input type="text" placeholder='Ingrese el nombre de la organizacion' onChange={(e) => setnombre_organizacion(e.target.value)} />
+                            {errors.nombre_organizacion && <p className = "error">{errors.nombre_organizacion}</p>}
+                        </div>
 
-            <form onSubmit = {manejadorBtn}>
-            <input type="text" className="fadeIn second" name="nombre_organizacion" placeholder="Nombre de la Organizacion" onChange={(e) => setnombre_organizacion(e.target.value)} />
-            {errors.nombre_organizacion && <p className = "error">{errors.nombre_organizacion}</p>}
+                        <div className="input-box">
+                            <span className="details">Codigo de la organizacion</span>
+                            <input type="text" placeholder='Ingrese el codigo de la organizacion' onChange={(e) => setcodigo_organizacion(e.target.value)} />
+                            {errors.codigo_organizacion && <p className = "error">{errors.codigo_organizacion}</p>}
+                        </div>
 
-            <input type="text" className="fadeIn second" name="codigo_organizacion" placeholder="Codigo de la Organizacion" onChange={(e) => setcodigo_organizacion(e.target.value)} />
-            {errors.codigo_organizacion && <p className = "error">{errors.codigo_organizacion}</p>}
+                        <div className="input-box">
+                            <span className="details">Area de negocio</span>
+                            <input type="text" placeholder='Ingrese el area de negocio' onChange={(e) => setarea_negocio(e.target.value)} />
+                            {errors.area_negocio && <p className = "error">{errors.area_negocio}</p>}
+                        </div>
 
-            <input type="text" className="fadeIn second" name="area_negocio" placeholder="Area Negocio de la Organizacion" onChange={(e) => setarea_negocio(e.target.value)} />
-            {errors.area_negocio && <p className = "error">{errors.area_negocio}</p>}
+                        <div className="input-box">
+                            <span className="details">Ubicacion de la organizacion</span>
+                            <input type="text" placeholder='Ingrese la ubicacion de la organizacion' onChange={(e) => setubicacion(e.target.value)} />
+                            {errors.ubicacion && <p className = "error">{errors.ubicacion}</p>}
+                        </div>
 
-            <input type="text" className="fadeIn second" name="ubicacion" placeholder="Ubicacion de la Organizacion" onChange={(e) => setubicacion(e.target.value)} />
-            {errors.ubicacion && <p className = "error">{errors.ubicacion}</p>}
+                        <div className="input-box">
+                            <span className="details">Telefono de la organizacion</span>
+                            <input type="text" placeholder='Ingrese el telefono de la organizacion' onChange={(e) => settelefono(e.target.value)} />
+                            {errors.telefono && <p className = "error">{errors.telefono}</p>}
+                        </div>
 
-            <input type="text" className="fadeIn second" name="telefono" placeholder="Telefono de la Organizacion" onChange={(e) => settelefono(e.target.value)} />
-            {errors.telefono && <p className = "error">{errors.telefono}</p>}
+                        <div className="input-box">
+                            <span className="details">Contraseña </span>
+                            <input type="password" placeholder='Ingrese el nombre de la organizacion' onChange={(e) => setpassword(e.target.value)} />
+                            {errors.password && <p className = "error">{errors.password}</p>}
+                        </div>
 
-            <input type="password" className="fadeIn third" name="password" placeholder="Password" onChange={(e) => setpassword(e.target.value)} />
-            {errors.password && <p className = "error">{errors.password}</p>}
-
-            <input type="submit" className="fadeIn fourth" value="Registrarse" onClick={registrarse} />
-            </form>
-
-            <div id="formFooter">
-
+                    </div>
+                    <div className = "button">
+                    <input type="submit" className="details" value="Registrarse" onClick={registrarse} />
+                    </div>
+                </form>
             </div>
-
-        </div>
-    </div> 
-      );
+    );
   }
 
 export default SingupForm;
