@@ -1,6 +1,7 @@
 import singIn from '../components/Singin';
 import dashboard from '../components/Dashboard';
 import singUp from '../components/Singup';
+import Departamento from '../components/Departamento';
 
 const routesAdmin = [
 
@@ -15,6 +16,10 @@ const routesAdmin = [
     {
         path: "/Singup",
         component: singUp,
+    },
+    {
+        path: "/Departamento",
+        component: Departamento,
     },
     /*{
         path: "/admin/departamentos/editar",

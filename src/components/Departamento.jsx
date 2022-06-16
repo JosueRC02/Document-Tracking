@@ -35,7 +35,7 @@ const [open, setOpen] = useState(true);
   const pase = async (pmt1) => {
     if(pmt1 === "Dashboard"){
       console.log(pmt1);
-      navigate('/Departamento')
+      //navigate('/Singup')
     }
     if(pmt1 === "Analytics"){
       console.log(pmt1);
@@ -89,7 +89,7 @@ const [open, setOpen] = useState(true);
         </ul>
       </div>
       <div className="h-screen flex-1 p-7" id="hp">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
+        <h1 className="text-2xl font-semibold ">Hola putos</h1>
       </div>
     </div>
   );
