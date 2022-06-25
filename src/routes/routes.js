@@ -1,5 +1,5 @@
 import singIn from '../components/Singin';
-import dashboard from '../components/Dashboard';
+import dashboard from '../components/Dashboard/Dashboard';
 import singUp from '../components/Singup';
 import Departamento from '../components/Departamento';
 
