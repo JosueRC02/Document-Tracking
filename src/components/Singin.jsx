@@ -5,6 +5,7 @@ import '../assets/css/singin.css';
 import {Apiurl} from '../services/ApiRest';
 import axios from 'axios';
 import SinginValidation from '../class/SinginValidation';
+import Swal from 'sweetalert2';
 
 const SinginForm = () => {
 
@@ -28,9 +29,21 @@ const SinginForm = () => {
             console.log(response);
             console.log(response.data.status);
             console.log(response.data.message);
+            Swal.fire({
+                icon: 'success',
+                title: 'Datos ingresados correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate('/Dashboard');
         } catch (error) {
             console.log("Error: ", error.response.data);
+            Swal.fire({
+                icon: 'error',
+                title: 'Datos ingresados de manera incorrecta',
+                showConfirmButton: false,
+                timer: 1500
+              })
             return error;
         }
     };
