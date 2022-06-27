@@ -2,6 +2,8 @@ import singIn from '../components/Singin';
 import dashboard from '../components/Dashboard/Dashboard';
 import singUp from '../components/Singup';
 import Departamento from '../components/Departamento';
+import Empleados from '../components/Empleados';
+import Tramites from '../components/Tramite';
 
 const routesAdmin = [
 
@@ -21,11 +23,16 @@ const routesAdmin = [
         path: "/Departamento",
         component: Departamento,
     },
-    /*{
-        path: "/admin/departamentos/editar",
-        component: EditarDepartamentos,
-    },
     {
+        path: "/Empleados",
+        component: Empleados,
+    },
+
+    {
+        path: "/Tramite",
+        component: Tramite,
+    },
+    /*{
         path: "/admin/consulta",
         component: ConsultaTracking,
     },

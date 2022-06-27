@@ -22,7 +22,7 @@ const Sidebar = () => {
     const Menus = [
         { title: "Dashboard", src:chart },
         { title: "Inbox", src: Chat },
-        { title: "Accounts", src: User, gap: true },
+        { title: "Empleados", src: User, gap: true },
         { title: "Schedule ", src: calendar },
         { title: "Search", src: Search },
         { title: "Analytics", src: Chart },
@@ -38,6 +38,14 @@ const Sidebar = () => {
         if(pmt1 === "Analytics"){
           console.log(pmt1);
           navigate('/Dashboard')
+        }
+        if(pmt1 === "Empleados"){
+          console.log(pmt1);
+          navigate('/Empleados')
+        }
+        if(pmt1 === "Schedule"){
+            console.log(pmt1);
+            navigate('/Tramite')
         }
       }
 
