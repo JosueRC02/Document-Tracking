@@ -10,12 +10,12 @@
 #sailorTable{
     white-space: normal;
 }
-tbody {
+#empleados {
     display:block;
     height:200px;
     overflow:auto;
 }
-thead, tbody tr {
+#titulo, #empleados tr {
     display:table;
     width:100%;
     table-layout:fixed;

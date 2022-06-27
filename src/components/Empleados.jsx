@@ -108,7 +108,7 @@ export default function Empleados(){
               <div class="table-responsive" id="sailorTableArea">
               <table id="sailorTable" class="table table-striped table-bordered" width="80%">
 
-        <thead>
+        <thead id="titulo">
             <tr>
                 <th>Codigo Empleado</th>
                 <th>Nombre Empleados</th>
@@ -124,7 +124,7 @@ export default function Empleados(){
                 <th>Departamento</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="empleados">
         {ListaEmpleados}
         </tbody>
     </table>

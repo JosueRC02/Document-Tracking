@@ -109,7 +109,7 @@ export default function Departamento(){
           <td>{item.codigo_departamento}</td>
           <td>{item.nombre_departamento}</td>
           <td>{item.correo_departamento}</td>
-          <td>{Id(item.organizacion)}</td>
+          <td>{item.organizacion}</td>
           <td>{item.telefono_departamento}</td>
           <td>
               <Tippy content="Departamentos">

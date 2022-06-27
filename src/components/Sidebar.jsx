@@ -23,10 +23,10 @@ const Sidebar = () => {
         { title: "Dashboard", src:chart },
         { title: "Inbox", src: Chat },
         { title: "Empleados", src: User, gap: true },
-        { title: "Schedule ", src: calendar },
+        { title: "Schedule", src: calendar },
         { title: "Search", src: Search },
         { title: "Analytics", src: Chart },
-        { title: "Files ", src: Folder, gap: true },
+        { title: "Files", src: Folder, gap: true },
         { title: "Setting", src: Setting },
     ];
 

@@ -3,7 +3,7 @@ import dashboard from '../components/Dashboard/Dashboard';
 import singUp from '../components/Singup';
 import Departamento from '../components/Departamento';
 import Empleados from '../components/Empleados';
-import Tramites from '../components/Tramite';
+import Tramite from '../components/Tramite';
 
 const routesAdmin = [
 
