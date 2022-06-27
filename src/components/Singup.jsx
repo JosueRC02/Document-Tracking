@@ -5,6 +5,7 @@ import '../assets/css/singup.css'
 import {Apiurl} from '../services/ApiRest';
 import axios from 'axios';
 import SingupValidation from '../class/SingupValidation';
+import Swal from 'sweetalert2';
 
 const SingupForm = () => {
 
@@ -30,10 +31,21 @@ const SingupForm = () => {
         const response = await axios.post(`${Apiurl}/organizacion/singUpOrganizacion`, datos);
         console.log(response);
         console.log(response.data.status);
-        alert("Registrado correctamente");
+        Swal.fire({
+            text: 'Datos ingresados correctamente',
+            showConfirmButton: false,
+            icon: 'success',
+            timer: 1500
+          })
         navigate('/')
     } catch (error) {
         console.log("Error: ", error.response.data);
+        Swal.fire({
+            icon: 'error',
+            text: 'Datos ingresados de manera incorrecta',
+            showConfirmButton: false,
+            timer: 1500
+          })
         return error;
     }
   }
