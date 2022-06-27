@@ -4,25 +4,36 @@ import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label} from 'reactstrap';
 
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
 
 export default function Departamento(){
-  
-  const[state,setState] = useState()
+
+  // const[datadepartamentos,setdatadepartamento] = useState([])
+
+  // useEffect( () => {
+  //         axios.get(`${Apiurl}/departamento/getDepartamento`).then(res => {
+  //             console.log(res.data.data)
+  //             setdatadepartamento(res.data.data)
+  //         }).catch( err =>{console.log(err)}
+  //         ) 
+  // },[])
+
+  // const listadepartamentos = Object.values(datadepartamentos).map(departamento=>{
+  //     return(
+  //         <div>
+  //             <br />
+  //             <br />
+  //            <h3>{departamento.nombre_departamento}</h3>
+  //         </div>
+  //     )
+  // })
+
+  //-----------------------------------------------------------------------------------------------
+
   const [list, setList] = useState([]);
 
-
-  const abrirModal=()=>{
-    if(state === false){
-      setState(!state);
-    }else{
-      setState(!state);
-    }
-    
-  }
   useEffect(() => {
     axios({
       url: `${Apiurl}/departamento/getDepartamento`,
@@ -57,13 +68,6 @@ export default function Departamento(){
     )
   })
 
-  const modalStyles={
-    position: "absolute",
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
-  }
-
   return (
     <div className="flex">
       <Sidebar/>
@@ -74,27 +78,7 @@ export default function Departamento(){
                   <div className="row">
                       <div className="col-sm-8"><h2>Lista <b>Departamentos</b></h2></div>
                       <div className="col-sm-4">
-                        <Button id="AgrD" className="btn btn-info" onClick={() => abrirModal()}>Agregar Departamento</Button>
-                        <Modal isOpen = {state} style={modalStyles}>
-                          <ModalHeader>
-                            Iniciar Sesión
-                          </ModalHeader>
-                          <ModalBody>
-                            <FormGroup>
-                              <Label for="usuario">Usuario</Label>
-                              <Input type="text" id="usuario" placeholder="Usuario"/> 
-                            </FormGroup>
-                            <FormGroup>
-                              <Label for="password">Contraseña</Label>
-                              <Input type="text" id="password"/> 
-                            </FormGroup>
-                          </ModalBody>
-
-                          <ModalFooter>
-                              <Button color="primary">Iniciar Sesión</Button>
-                              <Button color="secondary" onClick={() => abrirModal()}>Cerrar</Button>
-                          </ModalFooter>
-                        </Modal>
+                          <button id="AgrD" type="button" className="btn btn-info">Agregar Departamento</button>
                       </div>
                   </div>
               </div>
