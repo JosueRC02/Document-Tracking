@@ -1,0 +1,14 @@
+#AgrE{
+    margin-left: 1415px;
+}
+
+#modal{
+    width: 500px;
+}
+
+#form{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 10px 12px 0;
+}
