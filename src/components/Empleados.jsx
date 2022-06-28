@@ -244,42 +244,44 @@ export default function Empleados(){
                               Agregar Empleado
                             </ModalHeader>
                             <ModalBody>
-                              <FormGroup>
+                              <div className = "user-details">
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Codigo Empleado" onChange={(e) => setcodigo_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Nombre Empleado" onChange={(e) => setnombre_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Primer Aapellido" onChange={(e) => setprimer_apellido_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Segundo Apellido" onChange={(e) => setsegundo_apellido_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Fecha Nacimiento" onChange={(e) => setfec_nac_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Nacionalidad" onChange={(e) => setnacionalidad_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder="Direccion" onChange={(e) => setdireccion_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder="Correo Electronico" onChange={(e) => setcorreo_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder="Telefono" onChange={(e) => settelefono_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder="Fecha de Ingreso" onChange={(e) => setfec_ingreso_empleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder="Puesto" onChange={(e) => setpuesto_empleado(e.target.value)}/>  
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder="Departamento" onChange={(e) => setnombre_departamento(e.target.value)}/>  
                               </FormGroup>
+                              </div>
                             </ModalBody>
 
                             <ModalFooter>
@@ -293,47 +295,49 @@ export default function Empleados(){
                               Actualizar Empleado
                             </ModalHeader>
                             <ModalBody>
-                              <FormGroup>
+                            <div className = "user-details">
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" value={idEmpleado} onChange={(e) => setIdEmpleado(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={codigo_empleado2} onChange={(e) => setcodigo_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={nombre_empleado2} onChange={(e) => setnombre_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={primer_apellido_empleado2} onChange={(e) => setprimer_apellido_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={segundo_apellido_empleado2} onChange={(e) => setsegundo_apellido_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={fec_nac_empleado2} onChange={(e) => setfec_nac_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={nacionalidad_empleado2} onChange={(e) => setnacionalidad_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                                 <Input type="text" id="form" placeholder={direccion_empleado2} onChange={(e) => setdireccion_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder={correo_empleado2} onChange={(e) => setcorreo_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder={telefono_empleado2} onChange={(e) => settelefono_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder={fec_ingreso_empleado2} onChange={(e) => setfec_ingreso_empleado2(e.target.value)}/> 
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder={puesto_empleado2} onChange={(e) => setpuesto_empleado2(e.target.value)}/>  
                               </FormGroup>
-                              <FormGroup>
+                              <FormGroup className = "input-box">
                               <Input type="text" id="form" placeholder={nombre_departamento2} onChange={(e) => setnombre_departamento2(e.target.value)}/>  
                               </FormGroup>
+                              </div>
                             </ModalBody>
-
+                            
                             <ModalFooter>
                                 <Button color="primary" onClick={updateEmpleado}>Registrar</Button>
                                 <Button color="secondary" onClick={() => abrirModa()}>Cerrar</Button>

@@ -49,12 +49,13 @@ const SinginForm = () => {
     };
 
     return (
+        <div id = "body">
           <div className="wrapper fadeInDown">
             <div id="formContent">
 
             <div className="fadeIn first">
                 <br/><br/>
-            <img src={logo} style={{width: '150px', marginLeft: '128px'}} alt="User Icon" />
+            <img src={logo} style={{width: '150px', marginLeft: '145px'}} alt="User Icon" />
                 <br/><br/>
             </div>
 
@@ -72,7 +73,8 @@ const SinginForm = () => {
             <a className = "underlineHover" href= "Singup" >Registrarse?</a>
             </div>
             </div>
-        </div> 
+        </div>
+    </div>
       );
   }
 

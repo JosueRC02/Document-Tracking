@@ -50,6 +50,7 @@ const SingupForm = () => {
     }
   }
      return (
+    <div id = "body">
         <div className="container">
             <div className="title">
             <img src={logo} style={{width: '110px', marginLeft: '570px'}} alt="User Icon" />
@@ -98,6 +99,7 @@ const SingupForm = () => {
                     </div>
                 </form>
             </div>
+        </div>
     );
   }
 
