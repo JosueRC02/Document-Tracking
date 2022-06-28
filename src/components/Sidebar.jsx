@@ -20,30 +20,30 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(true);
     const Menus = [
-        { title: "Dashboard", src:chart },
-        { title: "Inbox", src: Chat },
-        { title: "Empleados", src: User, gap: true },
-        { title: "Schedule", src: calendar },
-        { title: "Search", src: Search },
-        { title: "Analytics", src: Chart },
-        { title: "Files", src: Folder, gap: true },
+        { title: "Dashboard", src:chart }, 
+        { title: "Departamentos", src: Chart, gap: true },
+        { title: "Empleados", src: User },
+        { title: "Tramites", src: Folder},
+        { title: "Casos", src: Chat },
+        { title: "Tracking", src: Search },
+        { title: "Schedule", src: calendar, gap: true },
         { title: "Setting", src: Setting },
     ];
 
     const pase = async (pmt1) => {
         if(pmt1 === "Dashboard"){
           console.log(pmt1);
-          navigate('/Departamento')
-        }
-        if(pmt1 === "Analytics"){
-          console.log(pmt1);
           navigate('/Dashboard')
+        }
+        if(pmt1 === "Departamentos"){
+          console.log(pmt1);
+          navigate('/Departamento')
         }
         if(pmt1 === "Empleados"){
           console.log(pmt1);
           navigate('/Empleados')
         }
-        if(pmt1 === "Schedule"){
+        if(pmt1 === "Tramites"){
             console.log(pmt1);
             navigate('/Tramite')
         }
@@ -73,7 +73,7 @@ const Sidebar = () => {
                     !open && "scale-0"
                     }`}
                 >
-                    Designer
+                    Document Tracking
                 </h1>
                 </div>
                 <ul className="pt-6">

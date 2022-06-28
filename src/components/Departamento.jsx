@@ -1,4 +1,5 @@
 import {MdOutlineMapsHomeWork} from "react-icons/md";
+import {RiDeleteBin6Line} from "react-icons/ri";
 import Tippy from "@tippyjs/react";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
@@ -10,12 +11,12 @@ import Swal from 'sweetalert2';
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
 
-
-
-
 export default function Departamento(){
   
   const[state,setState] = useState()
+  const[states,setStates] = useState()
+  //const [idOrg, setIdOrg] = useState();
+  //const [Org, setOrg] = useState([]);
   const [list, setList] = useState([]);
 
   const [codigo_departamento, setcodigo_departamento] = useState('');
@@ -23,6 +24,13 @@ export default function Departamento(){
   const [correo_departamento, setcorreo_departamento] = useState('');
   const [organizacion, setorganizacion] = useState('');
   const [telefono_departamento, settelefono_departamento] = useState('');
+
+  const [idDepartamento, setid] = useState('');
+  const [codigo_departamento2, setcodigo_departamento2] = useState('');
+  const [nombre_departamento2, setnombre_departamento2] = useState('');
+  const [correo_departamento2, setcorreo_departamento2] = useState('');
+  const [organizacion2, setorganizacion2] = useState('');
+  const [telefono_departamento2, settelefono_departamento2] = useState('');
 
   const registrarDepartamento = async () => {
 
@@ -50,14 +58,72 @@ export default function Departamento(){
     }
   }
 
+  const updateDepartamento = async () => {
+
+    const datos = {idd:idDepartamento,codigo_departamento: codigo_departamento2, nombre_departamento:nombre_departamento2, correo_departamento:correo_departamento2, organizacion:organizacion2, telefono_departamento:telefono_departamento2}
+    try {
+        const response = await axios.put(`${Apiurl}/departamento/${idDepartamento}`, datos);
+        console.log(response);
+        console.log(response.data.status);
+        Swal.fire({
+            text: 'Datos ingresados correctamente',
+            showConfirmButton: false,
+            icon: 'success',
+            timer: 1500
+          })
+          window.location.reload();
+    } catch (error) {
+        console.log("Error: ", error.response.data);
+        Swal.fire({
+            icon: 'error',
+            text: 'Datos ingresados de manera incorrecta',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        return error;
+    }
+  }
+
+  const deleteDepartamento = async () => {
+    
+    try {
+        const response = await axios.delete(`${Apiurl}/departamento/${idDepartamento}`);
+        console.log(response);
+        console.log(response.data.status);
+        window.location.reload();
+    } catch (error) {
+        console.log("Error: ", error.response.data);
+        Swal.fire({
+            icon: 'error',
+            text: 'Ha ocurrido un problema, vuelva a intentarlo',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        return error;
+    }
+  }
+
   const abrirModal=()=>{
     if(state === false){
+      console.log("false");
       setState(!state);
+      
     }else{
+      console.log("true");
       setState(!state);
     }
-    
   }
+
+  const abrirModa=()=>{
+    if(states === false){
+      setStates(!states);
+      console.log("entro2");
+    }else{
+      setStates(!states);
+      console.log("entro3");
+    }
+  }
+
   useEffect(() => {
     axios({
       url: `${Apiurl}/departamento/getDepartamento`,
@@ -71,50 +137,90 @@ export default function Departamento(){
       });
   }, []);
 
-  function Id (ptmid){
-    console.log(ptmid)
-    const [lista, setLista] = useState([]);
+  // const Id = (ptmid)=>{
+  //   const Listaa=[];
+  //   setIdOrg(ptmid)
+
+  //   console.log(ptmid)
+
+  //   useEffect(() => {
+  //     axios.get(`${Apiurl}/departamento/getNDepartamento/${idOrg}`)
+  //     .then((response) => {
+  //         console.log(response.data);
+  //         Listaa.fill(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+      
+  //   }, []);
   
-    useEffect(() => {
-      axios({
-        url: `${Apiurl}/departamento/getNDepartamento/`+ptmid,
-      })
-        .then((response) => {
-          setLista(response.data);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, []);
+  //   const List = Listaa.map(item=>{
+  //     return (
+  //       <>
+  //       {item.nombre_organizacion}
+  //       </>
+  //     )
+  //   })
   
-    const List = Object.values(lista).map(item=>{
-      return(
-          <>
-            {item.nombre_organizacion}
-          </>
-      )
-    })
-  
-    return List;
-  
+  //    return List;
+  // }
+
+  const Update = (id,codigo,nombre,correo,organizacion,telefono)=>{
+    console.log(id)
+    abrirModa()
+    setid(id)
+    setcodigo_departamento2(codigo)
+    setnombre_departamento2(nombre)
+    setcorreo_departamento2(correo)
+    setorganizacion2(organizacion)
+    settelefono_departamento2(telefono)
   }
 
-  
+  const Delete = (id)=>{
+    console.log(id);
+    setid(id);
+    console.log(idDepartamento);
+    Swal.fire({
+      title: '¿Seguro?',
+      text: "¿Está seguro que desea eliminar el registro?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Eliminado!',
+          'El departamento fue eliminado',
+          'Exitoso'
+        )
+        deleteDepartamento()
+      }
+    })
+    
+  }
 
   const ListaDepartamentos = Object.values(list).map(item=>{
     return(
         <>
-        <tr>
+        <tr id="trT">
           <td>{item.codigo_departamento}</td>
           <td>{item.nombre_departamento}</td>
           <td>{item.correo_departamento}</td>
           <td>{item.organizacion}</td>
           <td>{item.telefono_departamento}</td>
-          <td>
+          <td >
               <Tippy content="Departamentos">
-                <button type="button" className="btn btn-info" id="botonD">
+                <button  type="button" className="btn btn-info" name={item._id} onClick={()=>Update(item._id,item.codigo_departamento,item.nombre_departamento,item.correo_departamento,item.organizacion,item.telefono_departamento)}>
                 <MdOutlineMapsHomeWork size="23px"/>
+                </button>
+              </Tippy>
+              <>&nbsp;&nbsp;&nbsp;</>
+              <Tippy content="Departamentos">
+                <button type="button" className="btn btn-danger" name={item._id} onClick={()=>Delete(item._id)}>
+                <RiDeleteBin6Line size="23px"/>
                 </button>
               </Tippy>
           </td>
@@ -147,7 +253,7 @@ export default function Departamento(){
                           </ModalHeader>
                           <ModalBody>
                             <FormGroup>
-                              <Input type="text" id="codDepa" placeholder="Codigo departamento" onChange={(e) => setcodigo_departamento(e.target.value)}/> 
+                              <Input  type="text" id="codDepa" placeholder="Codigo departamento" onChange={(e) => setcodigo_departamento(e.target.value)}/> 
                             </FormGroup>
                             <FormGroup>
                               <Input type="text" id="nombre" placeholder="Nombre departamento" onChange={(e) => setnombre_departamento(e.target.value)}/> 
@@ -168,11 +274,41 @@ export default function Departamento(){
                               <Button color="secondary" onClick={() => abrirModal()}>Cerrar</Button>
                           </ModalFooter>
                         </Modal>
+                        <Modal isOpen = {states} style={modalStyles}>
+                          <ModalHeader>
+                            Actualizar Departamento
+                          </ModalHeader>
+                          <ModalBody>
+                          <FormGroup>
+                              <Input type="text" id="id" value={idDepartamento} onChange={(e) => setid(e.target.value)}/> 
+                            </FormGroup>
+                            <FormGroup>
+                              <Input type="text" id="codDepa" placeholder={codigo_departamento2} onChange={(e) => setcodigo_departamento2(e.target.value)}/> 
+                            </FormGroup>
+                            <FormGroup>
+                              <Input type="text" id="nombre" placeholder={nombre_departamento2} onChange={(e) => setnombre_departamento2(e.target.value)}/> 
+                            </FormGroup>
+                            <FormGroup>
+                              <Input type="text" id="correo" placeholder={correo_departamento2} onChange={(e) => setcorreo_departamento2(e.target.value)}/> 
+                            </FormGroup>
+                            <FormGroup>
+                              <Input type="text" id="codOrga" placeholder={organizacion2} onChange={(e) => setorganizacion2(e.target.value)}/> 
+                            </FormGroup>
+                            <FormGroup>
+                              <Input type="text" id="telefono" placeholder={telefono_departamento2} onChange={(e) => settelefono_departamento2(e.target.value)}/> 
+                            </FormGroup>
+                          </ModalBody>
+
+                          <ModalFooter>
+                              <Button color="primary" onClick={updateDepartamento}>Registrar</Button>
+                              <Button color="secondary" onClick={() => abrirModa()}>Cerrar</Button>
+                          </ModalFooter>
+                        </Modal>
                       </div>
                   </div>
               </div>
               <table className="table table-bordered">
-                  <thead>
+                  <thead id="thT">
                       <tr>
                           <th>Codigo</th>
                           <th>Nombre</th>
