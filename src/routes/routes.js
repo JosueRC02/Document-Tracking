@@ -4,6 +4,10 @@ import singUp from '../components/Singup';
 import Departamento from '../components/Departamento';
 import Empleados from '../components/Empleados';
 import Tramite from '../components/Tramite';
+import Casos from '../components/CasosAbiertos';
+import EmpleadosXDep from '../components/EmpleadosXDep';
+import TramiteXDep from '../components/TramiteXDep';
+import CasosXTramite from '../components/CasosXTramite';
 
 const routesAdmin = [
 
@@ -32,6 +36,22 @@ const routesAdmin = [
         path: "/Tramite",
         component: Tramite,
     },
+    {
+        path: "/CasosAbiertos",
+        component: Casos,
+    },
+    {
+        path: "/EmpleadosXDep/:id",
+        component: EmpleadosXDep,
+    },
+    {
+        path: "/TramiteXDep/:id",
+        component: TramiteXDep,
+    },
+    {
+        path: "/CasosXTra/:id",
+        component: CasosXTramite,
+    }
     /*{
         path: "/admin/consulta",
         component: ConsultaTracking,

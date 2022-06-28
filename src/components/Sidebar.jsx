@@ -47,6 +47,10 @@ const Sidebar = () => {
             console.log(pmt1);
             navigate('/Tramite')
         }
+        if(pmt1 === "Casos"){
+            console.log(pmt1);
+            navigate('/CasosAbiertos')
+        }
       }
 
     return (

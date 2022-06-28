@@ -1,5 +1,7 @@
 import {MdOutlineMapsHomeWork} from "react-icons/md";
 import {RiDeleteBin6Line} from "react-icons/ri";
+import {HiOutlineDocumentSearch} from "react-icons/hi";
+import {MdOutlinePeopleAlt} from "react-icons/md";
 import Tippy from "@tippyjs/react";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
@@ -7,12 +9,12 @@ import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input} from 'reactstrap';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
 
 export default function Departamento(){
-  
   const[state,setState] = useState()
   const[states,setStates] = useState()
   //const [idOrg, setIdOrg] = useState();
@@ -137,35 +139,6 @@ export default function Departamento(){
       });
   }, []);
 
-  // const Id = (ptmid)=>{
-  //   const Listaa=[];
-  //   setIdOrg(ptmid)
-
-  //   console.log(ptmid)
-
-  //   useEffect(() => {
-  //     axios.get(`${Apiurl}/departamento/getNDepartamento/${idOrg}`)
-  //     .then((response) => {
-  //         console.log(response.data);
-  //         Listaa.fill(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-      
-  //   }, []);
-  
-  //   const List = Listaa.map(item=>{
-  //     return (
-  //       <>
-  //       {item.nombre_organizacion}
-  //       </>
-  //     )
-  //   })
-  
-  //    return List;
-  // }
-
   const Update = (id,codigo,nombre,correo,organizacion,telefono)=>{
     console.log(id)
     abrirModa()
@@ -202,6 +175,7 @@ export default function Departamento(){
     
   }
 
+
   const ListaDepartamentos = Object.values(list).map(item=>{
     return(
         <>
@@ -212,17 +186,33 @@ export default function Departamento(){
           <td>{item.organizacion}</td>
           <td>{item.telefono_departamento}</td>
           <td >
-              <Tippy content="Departamentos">
+              <Tippy content="Actualizar">
                 <button  type="button" className="btn btn-info" name={item._id} onClick={()=>Update(item._id,item.codigo_departamento,item.nombre_departamento,item.correo_departamento,item.organizacion,item.telefono_departamento)}>
                 <MdOutlineMapsHomeWork size="23px"/>
                 </button>
               </Tippy>
               <>&nbsp;&nbsp;&nbsp;</>
-              <Tippy content="Departamentos">
+              <Tippy content="Eliminar">
                 <button type="button" className="btn btn-danger" name={item._id} onClick={()=>Delete(item._id)}>
                 <RiDeleteBin6Line size="23px"/>
                 </button>
               </Tippy>
+              <>&nbsp;&nbsp;&nbsp;</>
+              <Link to={`/EmpleadosXDep/${item._id}`}>
+                <Tippy content="Ver Empleados">
+                  <button type="button" className="btn btn-success">
+                  <MdOutlinePeopleAlt size="23px"/>
+                  </button>
+                </Tippy>
+              </Link>
+              <>&nbsp;&nbsp;&nbsp;</>
+              <Link to={`/TramiteXDep/${item._id}`}>
+                <Tippy content="Ver Tramites">
+                  <button type="button" className="btn btn-success">
+                  <HiOutlineDocumentSearch size="23px"/>
+                  </button>
+                </Tippy>
+              </Link>
           </td>
         </tr>
         </>
