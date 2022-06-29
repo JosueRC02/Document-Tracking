@@ -1,11 +1,8 @@
-import {HiOutlineDocumentSearch} from "react-icons/hi";
-import Tippy from "@tippyjs/react";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
 
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';

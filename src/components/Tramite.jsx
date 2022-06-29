@@ -7,6 +7,8 @@ import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input} from 'reactstrap';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import {HiOutlineDocumentSearch} from "react-icons/hi";
 
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
@@ -188,6 +190,14 @@ export default function Tramite(){
                 <RiDeleteBin6Line size="23px"/>
                 </button>
               </Tippy>
+              <>&nbsp;&nbsp;&nbsp;</>
+              <Link to={`/CasosXTra/${item._id}`}>
+                <Tippy content="Ver Tramites">
+                  <button type="button" className="btn btn-success">
+                  <HiOutlineDocumentSearch size="23px"/>
+                  </button>
+                </Tippy>
+              </Link>
           </td>
         </tr>
         </>
@@ -261,11 +271,12 @@ export default function Tramite(){
                   </div>
               </div>
               <table className="table table-bordered" id="Trami">
-                  <thead>
+                  <thead id="thT">
                       <tr>
                           <th>Codigo_tramite</th>
                           <th>tipo_tramite</th>
                           <th>Codigo_departamento</th>
+                          <th>Acciones</th>
                       </tr>
                   </thead>
                   <tbody>

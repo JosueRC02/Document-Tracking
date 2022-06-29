@@ -1,16 +1,13 @@
-import {HiOutlineDocumentSearch} from "react-icons/hi";
-import Tippy from "@tippyjs/react";
+
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
-
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
 
-export default function Tramite(){
+export default function Empleados(){
 
   const [list, setList] = useState([]);
 
@@ -20,7 +17,7 @@ export default function Tramite(){
 
   useEffect(() => {
     axios({
-        url: `${Apiurl}/empleado/getNEmpleados/${params.id}`,
+        url: `${Apiurl}/empleado/getNEmpleado/${params.id}`,
       })
         .then((response) => {
           setList(response.data.data);
@@ -60,7 +57,7 @@ export default function Tramite(){
           <div className="table-wrapper">
               <div className="table-title">
                   <div className="row">
-                      <div className="col-sm-8"><h2>Lista de <b>tramites por Departamento</b></h2></div>
+                      <div className="col-sm-8"><h2>Lista de <b>Empleados por Departamento</b></h2></div>
                       <div className="col-sm-4">
                       </div>
                   </div>

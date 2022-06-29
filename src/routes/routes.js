@@ -52,22 +52,6 @@ const routesAdmin = [
         path: "/CasosXTra/:id",
         component: CasosXTramite,
     }
-    /*{
-        path: "/admin/consulta",
-        component: ConsultaTracking,
-    },
-    {
-        path: "/admin/parametros",
-        component: Parametros,
-    },
-    {
-        path: "/admin/tramites",
-        component: Tramites,
-    },
-    {
-        path: "/admin/casos",
-        component: Casos,
-    }*/
 ];
 
 const routes = [...routesAdmin];
