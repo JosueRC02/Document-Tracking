@@ -8,6 +8,7 @@ import Casos from '../components/CasosAbiertos';
 import EmpleadosXDep from '../components/EmpleadosXDep';
 import TramiteXDep from '../components/TramiteXDep';
 import CasosXTramite from '../components/CasosXTramite';
+import Documentos from '../components/Documentos';
 
 const routesAdmin = [
 
@@ -52,10 +53,10 @@ const routesAdmin = [
         path: "/CasosXTra/:id",
         component: CasosXTramite,
     },
-    // {
-    //     path: "/Documentos/:id",
-    //     component: Documentos,
-    // }
+    {
+        path: "/Documentos/:id",
+        component: Documentos,
+    }
 ];
 
 const routes = [...routesAdmin];

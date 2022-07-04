@@ -192,7 +192,7 @@ export default function Tramite(){
               </Tippy>
               <>&nbsp;&nbsp;&nbsp;</>
               <Link to={`/CasosXTra/${item._id}`}>
-                <Tippy content="Ver Tramites">
+                <Tippy content="Ver Casos">
                   <button type="button" className="btn btn-success">
                   <HiOutlineDocumentSearch size="23px"/>
                   </button>
