@@ -13,9 +13,11 @@ import Search from '../assets/img/Search.png';
 import Chart from '../assets/img/Chart.png';
 import Folder from '../assets/img/Folder.png';
 import Setting from '../assets/img/Setting.png';
-
+import { useParams } from "react-router-dom";
 
 const Sidebar = () => {
+
+    const params = useParams();
 
     const navigate = useNavigate();
     const [open, setOpen] = useState(true);
@@ -26,30 +28,34 @@ const Sidebar = () => {
         { title: "Tramites", src: Folder},
         { title: "Casos", src: Chat },
         { title: "Tracking", src: Search },
-        { title: "Schedule", src: calendar, gap: true },
+        { title: "Documentos", src: calendar, gap: true },
         { title: "Setting", src: Setting },
     ];
 
     const pase = async (pmt1) => {
         if(pmt1 === "Dashboard"){
           console.log(pmt1);
-          navigate('/Dashboard')
+          navigate('/Dashboard/'+params.id)
         }
         if(pmt1 === "Departamentos"){
           console.log(pmt1);
-          navigate('/Departamento')
+          navigate('/Departamento/'+params.id)
         }
         if(pmt1 === "Empleados"){
           console.log(pmt1);
-          navigate('/Empleados')
+          navigate('/Empleados/'+params.id)
         }
         if(pmt1 === "Tramites"){
             console.log(pmt1);
-            navigate('/Tramite')
+            navigate('/Tramite/'+params.id)
         }
         if(pmt1 === "Casos"){
             console.log(pmt1);
-            navigate('/CasosAbiertos')
+            navigate('/CasosAbiertos/'+params.id)
+        }
+        if(pmt1 === "Documentos"){
+            console.log(pmt1);
+            navigate('/Documentos/'+params.id)
         }
       }
 

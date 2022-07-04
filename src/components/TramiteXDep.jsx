@@ -1,6 +1,5 @@
 import {HiOutlineDocumentSearch} from "react-icons/hi";
 import Tippy from "@tippyjs/react";
-import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
@@ -54,7 +53,6 @@ export default function Tramite(){
 
   return (
     <div className="flex">
-      <Sidebar/>
       <div className="h-screen flex-1 p-7" id="hp">
         <div className="contenedor" id="contenedor">
           <div className="table-wrapper">

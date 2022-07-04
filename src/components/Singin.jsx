@@ -26,16 +26,13 @@ const SinginForm = () => {
         const datos = {codigo_organizacion: codigo_organizacion, password: password}
         try {
             const response = await axios.post(`${Apiurl}/organizacion/singInOrganizacion`, datos);
-            console.log(response);
-            console.log(response.data.status);
-            console.log(response.data.message);
             Swal.fire({
                 icon: 'success',
                 title: 'Datos ingresados correctamente',
                 showConfirmButton: false,
                 timer: 1500
               })
-            navigate('/Dashboard');
+            navigate('/Dashboard/'+response.data.data);
         } catch (error) {
             console.log("Error: ", error.response.data);
             Swal.fire({

@@ -16,7 +16,7 @@ const routesAdmin = [
         component: singIn,
     },
     {
-        path: "/Dashboard",
+        path: "/Dashboard/:id",
         component: dashboard,
     },
     {
@@ -24,20 +24,20 @@ const routesAdmin = [
         component: singUp,
     },
     {
-        path: "/Departamento",
+        path: "/Departamento/:id",
         component: Departamento,
     },
     {
-        path: "/Empleados",
+        path: "/Empleados/:id",
         component: Empleados,
     },
 
     {
-        path: "/Tramite",
+        path: "/Tramite/:id",
         component: Tramite,
     },
     {
-        path: "/CasosAbiertos",
+        path: "/CasosAbiertos/:id",
         component: Casos,
     },
     {
@@ -51,7 +51,11 @@ const routesAdmin = [
     {
         path: "/CasosXTra/:id",
         component: CasosXTramite,
-    }
+    },
+    // {
+    //     path: "/Documentos/:id",
+    //     component: Documentos,
+    // }
 ];
 
 const routes = [...routesAdmin];

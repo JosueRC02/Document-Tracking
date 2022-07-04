@@ -10,6 +10,7 @@ import {Apiurl} from '../services/ApiRest';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input} from 'reactstrap';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import 'tippy.js/dist/tippy.css';
 import '../assets/css/depa.css';
@@ -33,6 +34,8 @@ export default function Departamento(){
   const [correo_departamento2, setcorreo_departamento2] = useState('');
   const [organizacion2, setorganizacion2] = useState('');
   const [telefono_departamento2, settelefono_departamento2] = useState('');
+
+  const params = useParams();
 
   const registrarDepartamento = async () => {
 
@@ -128,7 +131,7 @@ export default function Departamento(){
 
   useEffect(() => {
     axios({
-      url: `${Apiurl}/departamento/getDepartamento`,
+      url: `${Apiurl}/departamento/getNDepartamento/${params.id}`,
     })
       .then((response) => {
         setList(response.data.data);
