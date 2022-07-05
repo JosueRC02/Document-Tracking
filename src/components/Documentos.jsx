@@ -3,7 +3,7 @@ import "../assets/css/Documentos.css"
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Apiurl} from '../services/ApiRest';
-import { Alert } from "bootstrap";
+import Swal from 'sweetalert2';
 
 export default function Documentos(){
 
@@ -19,7 +19,10 @@ export default function Documentos(){
       fetch('https://script.google.com/macros/s/AKfycbzBr-rSNOj5BOxy2CCs81B7viy4pOOn1AkiVrq_8xFet_aNDZ4odqcjTME23lsiHVIW/exec', //your AppsScript URL
         { method: "POST", body: JSON.stringify(dataSend) }) //send to Api
         .then(res => res.json()).then((a) => {
-          alert(`Este es el link del archivo ${a.url}`) //See response
+          Swal.fire({
+            text: `Link del documento ${a.url}`,
+            icon: 'success',
+          }) //See response
         }).catch(e => console.log(e)) // Or Error in console
     }
   }
